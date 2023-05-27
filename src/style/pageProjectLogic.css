@@ -1,0 +1,41 @@
+/* Thomas Catonet */
+/* VERSION 1.0 */
+
+.architecturePage {
+}
+
+.lignemap {
+  display: flex;
+}
+
+.geoInfoBar {
+  padding-top: 5em;
+  background-color: #fefefe;
+  color: #242424;
+  border: 1px solid #242424;
+  float: right;
+  box-sizing: border-box;
+  width: 30%;
+  height: 100vh;
+}
+
+.contentGeoInfoBar {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.titleGeoInfoBar {
+  margin-bottom: 50px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.contentGeoData {
+  font-size: 20px;
+  color: #fefefe;
+}
+
+.dataField {
+  padding: 20px;
+  letter-spacing: 4px;
+}

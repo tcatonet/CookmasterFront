@@ -1,0 +1,10 @@
+/* Thomas Catonet */
+/* VERSION 1.0 */
+
+.notFound {
+  width: 200px;
+  margin: auto auto;
+  padding: 20px;
+  border: 1px solid lightgray;
+  text-align: center;
+}

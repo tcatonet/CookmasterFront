@@ -1,0 +1,17 @@
+button {
+  width: 42vh;
+  cursor: pointer;
+  padding: 1.5vh;
+  padding: 1.5vh;
+  margin-bottom: 1.5vh;
+  border: none;
+  background-color: #CFE2E4;
+  color: #174C4F;
+}
+
+
+
+button:hover {
+  background-color: #174C4F;
+  color: #CFE2E4;
+}

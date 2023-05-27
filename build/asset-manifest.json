@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ffd52b32.css",
+    "main.js": "./static/js/main.e147daf4.js",
+    "static/media/hide-password.svg": "./static/media/hide-password.2aaf769dde9be37e683f78d543bb61d8.svg",
+    "index.html": "./index.html",
+    "static/media/show-password.svg": "./static/media/show-password.7468b27017e6d779e083dd0beabf4efa.svg",
+    "main.ffd52b32.css.map": "./static/css/main.ffd52b32.css.map",
+    "main.e147daf4.js.map": "./static/js/main.e147daf4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffd52b32.css",
+    "static/js/main.e147daf4.js"
+  ]
+}
