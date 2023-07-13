@@ -22,6 +22,10 @@ import CreateSubAccount from '../../view/account/listSubAccount/CreateSubAccount
 import SubAccountListView from '../../view/account/listSubAccount/SubAccountListView';
 import ContactConnectedView from '../../view/account/ContactConnectedView';
 import PageSubscribe from '../../view/account/PageSubscribe';
+import EventView from '../../view/event/eventView';
+import StoreView from '../../view/store/storeView';
+import HomeView from '../../view/home/homeView';
+
 import './navbar.css';
 import {
   SIGN_IN,
@@ -42,7 +46,10 @@ import {
   SUB_ACCOUNT_DELETE,
   WRONG_ROOT,
   ACCOUNT_CONFIRMATION_UPDATE,
-  SUB_ACCOUNT_CREATE
+  SUB_ACCOUNT_CREATE,
+  HOME,
+  EVENT,
+  STORE
 } from './Root';
 
 export default function Navigation() {
@@ -51,6 +58,10 @@ export default function Navigation() {
       <Routes>
         <Route path={SIGN_IN} element={<SignInView />}></Route>
         <Route path={SIGN_UP} element={<SignUpView />}></Route>
+        <Route path={HOME} element={<HomeView />}></Route>
+        <Route path={EVENT} element={<EventView />}></Route>
+        <Route path={STORE} element={<StoreView />}></Route>
+
         <Route path={CONTACT} element={<ContactView />}></Route>
         <Route path={CONTACT_CONNECTED} element={<ContactConnectedView />}></Route>
         <Route path={ACCOUNT} element={<AccountView />}></Route>

@@ -7,7 +7,9 @@ export const FORGOT_PASSWORD_RESET = '/resetPassword';
 export const FORGOT_PASSWORD_RESET_CONFIRMATION = '/confirmationResetPassword';
 
 export const PROJECT = '/project';
-export const PROJECT_LIST = '/projects';
+export const HOME = '/home';
+export const EVENT = '/event';
+export const STORE = '/store';
 
 export const ACCOUNT = '/account';
 export const ACCOUNT_UPDATE = '/updateAccount';

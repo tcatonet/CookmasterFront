@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import destroySession from '../sessionManager/destroySession';
-import { SIGN_IN, ACCOUNT, PROJECT_LIST, CONTACT_CONNECTED } from './Root';
+import { SIGN_IN, ACCOUNT, HOME, CONTACT_CONNECTED } from './Root';
 import CustomSelectLanguage from '../select/language';
 import tradContent from '../../assets/traduction/dictionary';
 
@@ -35,7 +35,7 @@ const NavbarContactConnected = () => {
           <Link to={ACCOUNT}> {tradContent['accountLabel'][language]} </Link>
         </li>
         <li className="right">
-          <Link to={PROJECT_LIST}> {tradContent['projectsLabel'][language]} </Link>
+          <Link to={HOME}> {tradContent['projectsLabel'][language]} </Link>
         </li>
         <li className="right">
           <CustomSelectLanguage />

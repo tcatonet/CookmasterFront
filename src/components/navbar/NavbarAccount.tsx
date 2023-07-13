@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import destroySession from '../sessionManager/destroySession';
-import { SIGN_IN, PROJECT_LIST, ACCOUNT, CONTACT_CONNECTED } from './Root';
+import { HOME, ACCOUNT, EVENT, STORE, SIGN_IN } from './Root';
 import CustomSelectLanguage from '../select/language';
 import tradContent from '../../assets/traduction/dictionary';
 
@@ -20,27 +20,33 @@ const NavbarAccount = () => {
 
   return (
     <header className="navbar navbar-expand-lg navbar-light fixed-top">
+
       <ul>
         <li className="right">
           <Link to={SIGN_IN} onClick={destroySession}>
             {tradContent['logoutLabel'][language]}
           </Link>
         </li>
-        <li className=" right">
-          <Link to={CONTACT_CONNECTED}> {tradContent['contactLabel'][language]} </Link>
+        <li className="right">
+          <CustomSelectLanguage />
         </li>
-        <li className="active right">
+
+        <li className="left">
+          <Link to={HOME}> {tradContent['homeLabel'][language]} </Link>
+        </li>
+        <li className="left">
+          <Link to={EVENT}> {tradContent['eventLabel'][language]} </Link>
+        </li>
+        <li className="left">
+          <Link to={STORE}> {tradContent['storeLabel'][language]} </Link>
+        </li>
+        <li className="left">
           <Link className="active" to={ACCOUNT}>
             {tradContent['accountLabel'][language]}
           </Link>
         </li>
-        <li className="right">
-          <Link to={PROJECT_LIST}> {tradContent['projectsLabel'][language]} </Link>
-        </li>
-        <li className="right">
-          <CustomSelectLanguage />
-        </li>
       </ul>
+
     </header>
   );
 };

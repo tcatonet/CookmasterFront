@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import destroySession from '../sessionManager/destroySession';
-import { SIGN_IN, CONTACT_CONNECTED, ACCOUNT, PROJECT_LIST, SUB_ACCOUNT } from './Root';
+import { SIGN_IN, CONTACT_CONNECTED, ACCOUNT, HOME, SUB_ACCOUNT } from './Root';
 import CustomSelectLanguage from '../select/language';
 import tradContent from '../../assets/traduction/dictionary';
 
@@ -35,7 +35,7 @@ const NavbarSubAccountAction = () => {
           </Link>
         </li>
         <li className="right">
-          <Link to={PROJECT_LIST}> {tradContent['projectsLabel'][language]} </Link>
+          <Link to={HOME}> {tradContent['projectsLabel'][language]} </Link>
         </li>
         <li className="active left">
           <Link className="active" to={SUB_ACCOUNT}>

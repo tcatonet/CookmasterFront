@@ -42,9 +42,8 @@ export default function UpdateAccountView() {
   const infoUpdate = {
     email: email,
     name: name,
-    passwordBis: passwordBis,
     password: validationUserPassword,
-    validationUserPassword: validationUserPassword
+    old_password: validationUserPassword
   };
 
   useEffect(() => {
@@ -108,7 +107,7 @@ export default function UpdateAccountView() {
     if (!testUpdateForm()) {
       setShowLoader(true);
 
-      Axios.patch('/account', infoUpdate, {
+      Axios.patch('/user', infoUpdate, {
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
           'Access-Control-Allow-Origin': '*',

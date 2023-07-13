@@ -18,7 +18,7 @@ import saveToken from '../components/sessionManager/saveToken';
 
 import Loader from '../components/loader/Loader';
 import NavbarLogin from '../components/navbar/NavbarLogin';
-import { SIGN_IN, PROJECT_LIST } from '../components/navbar/Root';
+import { SIGN_IN, HOME } from '../components/navbar/Root';
 
 export default function SignUpConfirmationForm() {
   const [code, setCode] = React.useState('');
@@ -82,12 +82,14 @@ export default function SignUpConfirmationForm() {
         const data = res.data;
         setShowLoader(false);
 
-        if (data['success']) {
+        if (res.status==200) {
           saveToken(data['refresh_token']);
           setShowLoader(false);
           localStorage.setItem('toast_success', tradContent['createAccountMessage'][language]);
-          navigate(PROJECT_LIST);
+          navigate(HOME);
+
         } else {
+          console.log('ERROR')
           setShowLoader(false);
           setGlobalError(data['error']);
         }

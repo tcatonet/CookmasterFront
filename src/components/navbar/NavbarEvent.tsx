@@ -6,11 +6,11 @@ import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import destroySession from '../sessionManager/destroySession';
-import { SIGN_IN, HOME, ACCOUNT, CONTACT_CONNECTED, ACCOUNT_UPDATE } from './Root';
+import { HOME, ACCOUNT, EVENT, STORE, SIGN_IN } from './Root';
 import CustomSelectLanguage from '../select/language';
 import tradContent from '../../assets/traduction/dictionary';
 
-const NavbarUpdateAccountAction = () => {
+const NavbarAccount = () => {
   const [language, setLanguage] = React.useState('');
   useEffect(() => {
     const cookies = new Cookies();
@@ -26,28 +26,27 @@ const NavbarUpdateAccountAction = () => {
             {tradContent['logoutLabel'][language]}
           </Link>
         </li>
-        <li className=" right">
-          <Link to={CONTACT_CONNECTED}> {tradContent['contactLabel'][language]} </Link>
-        </li>
-        <li className="active right">
-          <Link className="active" to={ACCOUNT}>
-            {tradContent['accountLabel'][language]}
-          </Link>
-        </li>
-        <li className="right">
-          <Link to={HOME}> {tradContent['projectsLabel'][language]} </Link>
-        </li>
-        <li className="active left">
-          <Link className="active" to={ACCOUNT_UPDATE}>
-            {tradContent['backLabel'][language]}
-          </Link>
-        </li>
         <li className="right">
           <CustomSelectLanguage />
+        </li>
+
+        <li className="left">
+          <Link to={HOME}> {tradContent['homeLabel'][language]} </Link>
+        </li>
+        <li className="left">
+          <Link className="active" to={EVENT}> {tradContent['eventLabel'][language]} </Link>
+        </li>
+        <li className="left">
+          <Link to={STORE}> {tradContent['storeLabel'][language]} </Link>
+        </li>
+        <li className="left">
+          <Link to={ACCOUNT}>
+            {tradContent['accountLabel'][language]}
+          </Link>
         </li>
       </ul>
     </header>
   );
 };
 
-export default NavbarUpdateAccountAction;
+export default NavbarAccount;

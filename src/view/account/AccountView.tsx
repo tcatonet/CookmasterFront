@@ -25,7 +25,8 @@ import {
   ACCOUNT_UPDATE,
   ACCOUNT_DELETE,
   INVOICE_LIST,
-  SUB_ACCOUNT
+  SUB_ACCOUNT,
+  CONFIRMATION_EMAIL
 } from '../../components/navbar/Root';
 
 const styleButton = {
@@ -38,6 +39,12 @@ const styleButton = {
 export default function AccountView() {
   const [email, setEmail] = React.useState('');
   const [name, setName] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [firstname, setFirstname] = React.useState('');
+  const [lastname, setLastname] = React.useState('');
+
+
+
   const [showLoader, setShowLoader] = React.useState(true);
   const [accessUpdateAccount] = React.useState(localStorage.getItem('accessUpdateAccount'));
   const [accessSubscription] = React.useState(localStorage.getItem('accessSubscription'));
@@ -55,7 +62,7 @@ export default function AccountView() {
 
       extractToastMessage();
       setShowLoader(true);
-      Axios.get('/account', {
+      Axios.get('/user', {
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
           'Access-Control-Allow-Origin': '*',
@@ -64,22 +71,34 @@ export default function AccountView() {
       })
         .then((res) => {
           const data = res.data;
-          if (data['success']) {
-            saveToken(data['refresh_token']);
-            setName(data['user']['name']);
-            setEmail(data['user']['email']);
-            setShowLoader(false);
+          console.log(data)
+          console.log(data)
+
+          if (res.status==200) {
+            if (data['level']==5){
+              navigate(CONFIRMATION_EMAIL);
+            }else{
+              saveToken(data['refresh_token']);
+              setName(data['username']);
+              setEmail(data['email']);
+              setPhone(data['phone']);
+              setFirstname(data['first_name']);
+              setLastname(data['last_name']);
+              setShowLoader(false);
+            }
           } else {
-            if (data['error'] === 'token is invalid') {
+            if (res.status == 401) {
               localStorage.setItem('toast_error', tradContent['sessionTimeOutError'][language]);
-              navigate(SIGN_IN);
             }
             toast.error('Internal error try later');
+            navigate(SIGN_IN);
           }
         })
         .catch(() => {
           setShowLoader(false);
           toast.error(tradContent['internalError'][language]);
+          navigate(SIGN_IN);
+
         });
     })();
   },[setLanguage, language, navigate]);
@@ -134,7 +153,7 @@ export default function AccountView() {
 
   async function fetchCancelSubscription() {
     setShowLoader(true);
-    const responseFetch = fetch(`http://0.0.0.0:4000/cancel-subscription`, {
+    const responseFetch = fetch(`http://0.0.0.0:4000/user`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -161,8 +180,11 @@ export default function AccountView() {
 
             <CustomLabel value={tradContent['emailLabel'][language] + ': ' + email} />
             <CustomLabel value={tradContent['nameLabel'][language] + ': ' + name} />
+            <CustomLabel value={tradContent['firstName'][language] + ': ' + firstname} />
+            <CustomLabel value={tradContent['lastName'][language] + ': ' + lastname} />
+            <CustomLabel value={tradContent['phone'][language] + ': ' + phone} />
+
             <div style={styleButton}>
-              {accessUpdateAccount === 'true' ? (
                 <>
                   <CustomButtonBox
                     text={tradContent['updateBp'][language]}
@@ -173,30 +195,18 @@ export default function AccountView() {
                     onPress={deleteAccount}
                   />
                 </>
-              ) : null}
-              {accessSubscription === 'true' ? (
                 <>
                   <CustomButtonBox text={tradContent['invoiceBp'][language]} onPress={invoice} />
-                  {subscription === 'false' ? (
                     <CustomButtonBox
                       text={tradContent['subscribeBp'][language]}
                       onPress={subscribe}
                     />
-                  ) : null}
-                  {subscription === 'true' ? (
                     <CustomButtonBox
                       text={tradContent['subscribeCancelBp'][language]}
                       onPress={cancelSubscription}
                     />
-                  ) : null}
-                  {accessSubAccount === 'true' ? (
-                    <CustomButtonBox
-                      text={tradContent['subAccountBp'][language]}
-                      onPress={subAccount}
-                    />
-                  ) : null}
+
                 </>
-              ) : null}
             </div>
           </div>
         ) : null}

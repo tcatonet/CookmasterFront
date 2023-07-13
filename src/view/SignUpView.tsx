@@ -121,8 +121,7 @@ export default function SignUpView() {
   function createAccount() {
     if (!testSignUpForm()) {
       setShowLoader(true);
-
-      Axios.post('/register', newUser, {
+      Axios.post('/user', newUser, {
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
           'Access-Control-Allow-Origin': '*'

@@ -368,8 +368,24 @@ const tradContent = {
     francais: 'Département'
   },
   nameLabel: {
-    english: 'Name',
+    english: 'Username',
+    francais: 'Nom d\'utilisateur'
+  },
+  emailSend: {
+    english: 'Email send',
+    francais: 'Email envoyé'
+  },
+  firstName: {
+    english: 'Firstname',
+    francais: 'Prénom'
+  },
+  lastName: {
+    english: 'Lastname',
     francais: 'Nom'
+  },
+  phone: {
+    english: 'Phone',
+    francais: 'Téléphone'
   },
   emailLabel: {
     english: 'Email',
@@ -474,7 +490,26 @@ const tradContent = {
   loginLabel: {
     english: 'Login',
     francais: 'Connexion'
+  },
+
+
+
+
+
+  homeLabel: {
+    english: 'Home',
+    francais: 'Acceuik'
+  },
+  storeLabel: {
+    english: 'Store',
+    francais: 'Magasin'
+  },
+  eventLabel: {
+    english: 'Event',
+    francais: 'Evennement'
   }
+
+
 };
 
 export default tradContent;

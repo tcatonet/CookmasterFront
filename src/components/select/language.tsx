@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 const selectLanguage = {
   height: '9vh',
   width: '8vh',
-  fontSize: '3vh',
+  fontSize: '1.5vh',
   border: '0vh',
   backgroundColor: '#CFE2E4',
   color: '#174C4F'
